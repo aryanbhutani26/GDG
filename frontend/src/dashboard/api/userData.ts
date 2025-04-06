@@ -5,7 +5,7 @@ export const fetchUserData = async (): Promise<UserData> => {
   const token = localStorage.getItem('token');
 
   try {
-    const response = await axios.get('http://localhost:5000/api/user/data', {
+    const response = await axios.get('https://gdg-dcdk.onrender.com/api/user/data', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

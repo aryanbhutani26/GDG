@@ -31,7 +31,7 @@ const SavingsGoals: React.FC<SavingsGoalsProps> = () => {
     const fetchGoals = async () => {
       try{
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/goals', {
+        const res = await axios.get('https://gdg-dcdk.onrender.com/api/goals', {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = Array.isArray(res.data) ? res.data.filter(g => g && g.name) : [];
@@ -55,7 +55,7 @@ const SavingsGoals: React.FC<SavingsGoalsProps> = () => {
       try {
         const token = localStorage.getItem('token');
         const res = await axios.put(
-          `http://localhost:5000/api/goals/${goal._id}`,
+          `https://gdg-dcdk.onrender.com/api/goals/${goal._id}`,
           { targetAmount: newAmount },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -80,7 +80,7 @@ const SavingsGoals: React.FC<SavingsGoalsProps> = () => {
       try {
         const token = localStorage.getItem('token');
         const res = await axios.post(
-          'http://localhost:5000/api/goals',
+          'https://gdg-dcdk.onrender.com/api/goals',
           {
             name: newGoal.name.trim(),
             targetAmount,
@@ -101,7 +101,7 @@ const SavingsGoals: React.FC<SavingsGoalsProps> = () => {
   const handleDelete = async (goalId: string) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/goals/${goalId}`, {
+      await axios.delete(`https://gdg-dcdk.onrender.com/api/goals/${goalId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGoals((prev) => prev.filter((g) => g._id !== goalId));

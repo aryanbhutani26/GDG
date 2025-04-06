@@ -24,11 +24,14 @@ const Dashboard: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const handleUpdateGoal = (updatedGoal: { id: string; name: string; targetAmount: number; currentAmount: number; deadline: Date }) => {
+  const handleUpdateGoal = (updatedGoal: { _id: string; name: string; targetAmount: number; currentAmount: number; deadline: Date }) => {
     if (userData) {
-      const updatedGoals = userData.savingsGoals.map(goal => 
-        goal.id === updatedGoal.id ? updatedGoal : goal
+      const updatedGoals = userData.savingsGoals.map(goal =>
+        goal._id === updatedGoal._id
+            ? { ...updatedGoal, _id: updatedGoal._id } // Add `_id` to updatedGoal
+            : goal
       );
+
       setUserData({
         ...userData,
         savingsGoals: updatedGoals
@@ -46,7 +49,7 @@ const Dashboard: React.FC = () => {
       setUserData({
         ...userData,
         savingsGoals: [...userData.savingsGoals, {
-          id: newGoalWithId.id,
+          _id: newGoalWithId.id,
           name: newGoalWithId.name,
           targetAmount: newGoalWithId.targetAmount,
           currentAmount: newGoalWithId.currentAmount,

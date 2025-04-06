@@ -33,7 +33,7 @@ const RegisterPage: React.FC = () => {
 
     try {
       if (isLogin) {
-        const response = await axios.post('http://localhost:5000/api/auth/login', {
+        const response = await axios.post('https://gdg-dcdk.onrender.com/api/auth/login', {
           email: formData.email,
           password: formData.password,
         });
@@ -44,7 +44,7 @@ const RegisterPage: React.FC = () => {
           navigate('/dashboard');
         }
       } else {
-        const response = await axios.post('http://localhost:5000/api/auth/register', {
+        const response = await axios.post('https://gdg-dcdk.onrender.com/api/auth/register', {
           username: formData.username,
           email: formData.email,
           password: formData.password,

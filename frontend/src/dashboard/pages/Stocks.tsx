@@ -55,7 +55,7 @@ const Stocks: React.FC = () => {
     try {
       const token = localStorage.getItem('token'); // Make sure your login flow stores it
   
-      const res = await axios.get(`http://localhost:5000/api/market/quote/${searchTerm}`, {
+      const res = await axios.get(`https://gdg-dcdk.onrender.com/api/market/quote/${searchTerm}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -80,7 +80,7 @@ const Stocks: React.FC = () => {
     try {
       const token = localStorage.getItem('token'); // Get your JWT token
 
-      const res = await axios.get(`http://localhost:5000/api/market/timeseries/${selectedTicker}`, {
+      const res = await axios.get(`https://gdg-dcdk.onrender.com/api/market/timeseries/${selectedTicker}`, {
         headers: {
           Authorization: `Bearer ${token}` // Pass the token here
         }

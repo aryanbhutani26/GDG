@@ -1,0 +1,27 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* For webkit browsers like Chrome/Safari */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #00D395;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00b380;
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #00D395 #1a1a1a;
+  }

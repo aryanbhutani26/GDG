@@ -17,11 +17,13 @@ const AiInsights: React.FC<AiInsightsProps> = ({ insights }) => {
       <div className="space-y-4">
         {insights.map((insight) => (
           <div
-            key={insight.id}
+            key={insight._id} // Use `_id` for unique keys
             className={`p-4 rounded-lg ${
-              insight.type === 'tip' ? 'bg-[#00D395]/10' :
-              insight.type === 'warning' ? 'bg-yellow-500/10' :
-              'bg-blue-500/10'
+              insight.type === 'tip'
+                ? 'bg-[#00D395]/10'
+                : insight.type === 'warning'
+                ? 'bg-yellow-500/10'
+                : 'bg-blue-500/10'
             }`}
           >
             <p className="text-white">{formatMessage(insight.message)}</p>

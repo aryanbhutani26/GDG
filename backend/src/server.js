@@ -20,7 +20,11 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://gdg-self.vercel.app', // ✅ Your deployed Vercel frontend
+  credentials: true // If you use cookies/auth tokens
+}));
+
 
 // Routes
 app.use('/api/auth', authRoutes);

@@ -30,7 +30,7 @@ const AiDemo: React.FC = () => {
     setUserInput('');
 
     try {
-      const res = await axios.post("http://localhost:8000/secondbot", {
+      const res = await axios.post("https://django-qkol.onrender.com/secondbot", {
         message
       });
 
